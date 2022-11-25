@@ -100,3 +100,16 @@
 .hp .xpText {
   padding-left: 10px;
 }
+.height-weight {
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+  padding: 10px 10px;
+  border-bottom: 1px solid gray;
+}
+.fire,
+.weight,
+.height {
+  color: #157715;
+  margin-bottom: 3px;
+}
