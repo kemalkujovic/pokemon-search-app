@@ -39,6 +39,11 @@
 .search-div {
   display: flex;
 }
+.pokemonName {
+  margin-top: 118px;
+  font-size: 25px;
+  margin-left: 15px;
+}
 .error-div {
   display: none;
   width: 80%;
@@ -52,4 +57,20 @@
 }
 .error-div p {
   color: white;
+}
+.main {
+  display: none;
+  border-radius: 5px;
+  width: 390px;
+  border: 1px solid gray;
+  height: 50vh;
+  margin-top: 78px;
+  justify-content: center;
+  position: relative;
+}
+.main img {
+  position: absolute;
+  top: -50px;
+  width: 150px;
+  height: 150px;
 }
