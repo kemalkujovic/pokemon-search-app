@@ -96,6 +96,8 @@ function showArrowLeft() {
 
 viewAll.addEventListener("click", function (e) {
   if (e.target.classList.contains("left-icon")) {
+    errorDiv.style.display = "none";
+    searchInput.value = "";
     containerAll.style.display = "none";
     container.style.display = "flex";
     document.querySelector(".left-icon").style.display = "none";
