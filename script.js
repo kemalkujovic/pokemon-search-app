@@ -27,6 +27,7 @@ function errorMessage() {
   errorDiv.insertAdjacentElement("beforeend", errorM);
 }
 function displayPokemon(data) {
+  console.log(data);
   errorDiv.style.display = "none";
   let name = data.forms[0].name;
   let typeName = data.types[0].type.name;
@@ -40,4 +41,10 @@ function displayPokemon(data) {
   document.querySelector(".fire").innerHTML = `${
     typeName.toUpperCase()[0] + typeName.slice(1, typeName.length)
   }`;
+  document.querySelector(".dust").innerHTML = `${Math.floor(
+    Math.random() * 1000
+  )}`;
+  document.querySelector(".candy").innerHTML = `${Math.floor(
+    Math.random() * 500
+  )}`;
 }

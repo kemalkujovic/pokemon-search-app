@@ -113,3 +113,17 @@
   color: #157715;
   margin-bottom: 3px;
 }
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  text-align: center;
+}
+.startDust,
+.candydiv {
+  margin-top: 20px;
+}
+.dust,
+.candy {
+  color: #157715;
+}
