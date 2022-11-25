@@ -7,6 +7,7 @@ let logo = document.querySelector("#logo");
 let pokemonName = document.querySelector(".pokemonName");
 let viewAll = document.querySelector(".viewAll");
 let container = document.querySelector(".container");
+let containerAll = document.querySelector(".containerAll");
 viewAll.addEventListener("click", async function () {
   container.style.display = "none";
   let response = await axios.get(BASE_URL);
@@ -16,9 +17,18 @@ viewAll.addEventListener("click", async function () {
 async function displayAllPokemon(data) {
   data.forEach(async function (el) {
     let response = await axios.get(el.url);
-    console.log(response);
+    showAllPokemons(response);
   });
 }
+function showAllPokemons(data) {
+  let img = document.createElement("img");
+  img.src = data.data.sprites.other.dream_world.front_default;
+  let gridDiv = document.createElement("div");
+  gridDiv.classList.add("nesto");
+  gridDiv.appendChild(img);
+  containerAll.insertAdjacentElement("beforeend", gridDiv);
+}
+
 searchBtn.addEventListener("click", fetchFunction);
 
 async function fetchFunction() {
