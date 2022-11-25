@@ -39,3 +39,17 @@
 .search-div {
   display: flex;
 }
+.error-div {
+  display: none;
+  width: 80%;
+  height: 30px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: #eccbcb;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+.error-div p {
+  color: white;
+}
