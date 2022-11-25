@@ -26,4 +26,6 @@ function displayPokemon(data) {
   mainPokemon.style.display = "flex";
   logo.src = data.sprites.other.dream_world.front_default;
   pokemonName.innerText = name.toUpperCase()[0] + name.slice(1, name.length);
+  document.querySelector(".hpText").innerHTML = `HP ${data.stats[0].base_stat}`;
+  document.querySelector(".xpText").innerHTML = `XP ${data.base_experience}`;
 }
