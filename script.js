@@ -5,6 +5,20 @@ let errorDiv = document.querySelector(".error-div");
 let mainPokemon = document.querySelector(".main");
 let logo = document.querySelector("#logo");
 let pokemonName = document.querySelector(".pokemonName");
+let viewAll = document.querySelector(".viewAll");
+let container = document.querySelector(".container");
+viewAll.addEventListener("click", async function () {
+  container.style.display = "none";
+  let response = await axios.get(BASE_URL);
+  let data = response.data.results;
+  displayAllPokemon(data);
+});
+async function displayAllPokemon(data) {
+  data.forEach(async function (el) {
+    let response = await axios.get(el.url);
+    console.log(response);
+  });
+}
 searchBtn.addEventListener("click", fetchFunction);
 
 async function fetchFunction() {

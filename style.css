@@ -127,3 +127,8 @@
 .candy {
   color: #157715;
 }
+.viewAll {
+  width: 200px;
+  height: 50px;
+  border: 1px solid black;
+}
