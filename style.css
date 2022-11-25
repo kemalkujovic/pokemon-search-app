@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 20px;
   flex-direction: column;
 }
 .header h1 {
@@ -130,18 +130,31 @@
 .viewAll {
   width: 200px;
   height: 50px;
-  border: 1px solid black;
+  background: palegreen;
+  border-radius: 3px;
+  color: white;
 }
 .containerAll {
-  display: flex;
+  display: none;
   justify-content: center;
   margin: 0px;
+  max-width: 1000px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 50px;
 }
-.containerAll img {
+.pokemon-card img {
   width: 100px;
-  height: 100px;
+  height: 80px;
 }
-.nesto {
+.pokemon-card {
   border: 1px solid black;
-  gap: 10px;
+  margin: 10px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left-icon {
+  font-size: 35px;
 }

@@ -5,27 +5,38 @@ let errorDiv = document.querySelector(".error-div");
 let mainPokemon = document.querySelector(".main");
 let logo = document.querySelector("#logo");
 let pokemonName = document.querySelector(".pokemonName");
-let viewAll = document.querySelector(".viewAll");
+let btnAll = document.querySelector(".viewAll");
+let viewAll = document.querySelector(".viewDiv");
 let container = document.querySelector(".container");
 let containerAll = document.querySelector(".containerAll");
-viewAll.addEventListener("click", async function () {
+btnAll.addEventListener("click", async function () {
   container.style.display = "none";
+  showArrowLeft();
   let response = await axios.get(BASE_URL);
   let data = response.data.results;
   displayAllPokemon(data);
 });
 async function displayAllPokemon(data) {
+  containerAll.innerHTML = "";
   data.forEach(async function (el) {
     let response = await axios.get(el.url);
     showAllPokemons(response);
   });
 }
 function showAllPokemons(data) {
+  let pokemonName = data.data.name;
+  containerAll.style.display = "flex";
   let img = document.createElement("img");
   img.src = data.data.sprites.other.dream_world.front_default;
+  let namePokemon = document.createElement("h5");
+  namePokemon.classList.add("allNames");
+  namePokemon.innerText = `${
+    pokemonName.toUpperCase()[0] + pokemonName.slice(1, pokemonName.length)
+  }`;
   let gridDiv = document.createElement("div");
-  gridDiv.classList.add("nesto");
+  gridDiv.classList.add("pokemon-card");
   gridDiv.appendChild(img);
+  gridDiv.appendChild(namePokemon);
   containerAll.insertAdjacentElement("beforeend", gridDiv);
 }
 
@@ -51,6 +62,8 @@ function errorMessage() {
   errorDiv.insertAdjacentElement("beforeend", errorM);
 }
 function displayPokemon(data) {
+  searchInput.value = "";
+  searchInput.focus();
   console.log(data);
   errorDiv.style.display = "none";
   let name = data.forms[0].name;
@@ -72,3 +85,21 @@ function displayPokemon(data) {
     Math.random() * 500
   )}`;
 }
+function showArrowLeft() {
+  btnAll.style.display = "none";
+  let arrowLeft = document.createElement("i");
+  arrowLeft.className = "fa fa-arrow-left left-icon";
+  document
+    .querySelector(".viewDiv")
+    .insertAdjacentElement("afterbegin", arrowLeft);
+}
+
+viewAll.addEventListener("click", function (e) {
+  if (e.target.classList.contains("left-icon")) {
+    containerAll.style.display = "none";
+    container.style.display = "flex";
+    document.querySelector(".left-icon").style.display = "none";
+    btnAll.style.display = "block";
+    searchInput.focus();
+  }
+});
